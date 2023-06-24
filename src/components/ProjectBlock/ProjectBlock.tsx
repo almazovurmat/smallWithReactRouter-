@@ -1,6 +1,21 @@
 import React from 'react';
 
-const ProjectBlock = () => {
+import {IProject} from "../../types/types";
+import {useNavigate} from "react-router-dom";
+
+interface IProps {
+    projects: IProject[];
+}
+
+const style: React.CSSProperties = {
+    cursor: "pointer",
+};
+const styles: React.CSSProperties = {
+    width: "300px",
+    height: "400px",
+};
+const ProjectBlock: React.FC<IProps> = ({projects}) => {
+    const navigate = useNavigate();
     return (
         <section className="py-5">
             <div className="container px-5 mb-5">
@@ -10,34 +25,24 @@ const ProjectBlock = () => {
                 </div>
                 <div className="row gx-5 justify-content-center">
                     <div className="col-lg-11 col-xl-9 col-xxl-8">
-                        <div className="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                            <div className="card-body p-0">
-                                <div className="d-flex align-items-center">
-                                    <div className="p-5">
-                                        <h2 className="fw-bolder">Project Name 1</h2>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum
-                                            illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero,
-                                            iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                        {
+                            projects.map(project => (
+                                <div className="card overflow-hidden shadow rounded-4 border-0 mb-5" style={style}
+                                     onClick={() => navigate(project.route)}>
+                                    <div className="card-body p-0">
+                                        <div className="d-flex align-items-center">
+                                            <div className="p-5">
+                                                <h2 className="fw-bolder">{project.title}</h2>
+                                                <p>{project.description}</p>
+                                            </div>
+
+                                            <img style={styles} className="img-fluid" src={project.image}
+                                                 alt={project.title}/>
+                                        </div>
                                     </div>
-                                    <img className="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d"
-                                         alt="..."/>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="card overflow-hidden shadow rounded-4 border-0">
-                            <div className="card-body p-0">
-                                <div className="d-flex align-items-center">
-                                    <div className="p-5">
-                                        <h2 className="fw-bolder">Project Name 2</h2>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum
-                                            illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero,
-                                            iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
-                                    </div>
-                                    <img className="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d"
-                                         alt="..."/>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

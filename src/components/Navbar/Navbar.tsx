@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white py-3">
             <div className="container px-5">
-                <NavLink className="navbar-brand" to="/"><span className="fw-bolder text-primary">Start Bootstrap</span></NavLink>
+                <NavLink className="navbar-brand" to="/"><span className="fw-bolder text-primary">Samuel Jackson</span></NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span
