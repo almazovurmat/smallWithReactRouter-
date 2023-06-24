@@ -1,13 +1,15 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import MainPage from "./containers/MainPage/MainPage";
 import Projects from "./containers/Projects/Projects";
 import AboutMe from "./containers/Aboutme/AboutMe";
 import Contact from "./containers/Contact/Contact";
-import Footer from "./components/Footer/Footer";
-import './App.css';
 import Page404 from "./containers/404/page404";
+import Messenger from "./containers/Messenger/Messenger";
+import BurgerPage from "./containers/BurgerPage/BurgerPage";
+import './App.css';
 
 const App = () => (
     <div className="App">
@@ -28,6 +30,14 @@ const App = () => (
 
                 <Route path="/contact" element={(
                     <Contact />
+                )} />
+
+                <Route path="/projects/messenger" element={(
+                    <Messenger />
+                )} />
+
+                <Route path="/projects/burger" element={(
+                    <BurgerPage />
                 )} />
 
                 <Route path="*" element={(
